@@ -408,7 +408,7 @@ SELECT * FROM booking
 INSERT INTO booking(pID,tripID,price)VALUES(11,1,500)
 --------------
 
-Query OK, 1 row affected (0.04 sec)
+Query OK, 1 row affected (0.03 sec)
 
 --------------
 INSERT INTO booking(pID,tripID,price)VALUES(22,1,500)
@@ -420,7 +420,7 @@ Query OK, 1 row affected (0.01 sec)
 INSERT INTO booking(pID,tripID,price)VALUES(33,1,200)
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO booking(pID,tripID,price)VALUES(34,1,200)
@@ -438,7 +438,7 @@ Query OK, 1 row affected (0.02 sec)
 INSERT INTO booking(pID,tripID,price)VALUES(66,1,600.99)
 --------------
 
-Query OK, 1 row affected, 1 warning (0.01 sec)
+Query OK, 1 row affected, 1 warning (0.00 sec)
 
 --------------
 INSERT INTO booking(pID,tripID,price)VALUES(44,8,400)
@@ -456,13 +456,13 @@ Query OK, 1 row affected (0.01 sec)
 INSERT INTO booking(pID,tripID,price)VALUES(78,4,600)
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO booking(pID,tripID,price)VALUES(80,4,600)
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO booking(pID,tripID,price)VALUES(78,1,550)
@@ -480,13 +480,13 @@ Query OK, 1 row affected (0.01 sec)
 INSERT INTO booking(pID,tripID,price)VALUES(34,8,300)
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO booking(pID,tripID,price)VALUES(11,6,600)
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO booking(pID,tripID,price)VALUES(22,6,600)
@@ -498,7 +498,7 @@ Query OK, 1 row affected (0.01 sec)
 INSERT INTO booking(pID,tripID,price)VALUES(33,6,100)
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO booking(pID,tripID,price)VALUES(34,6,100)

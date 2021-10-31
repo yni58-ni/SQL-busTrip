@@ -30,13 +30,13 @@ Query OK, 1 row affected (0.00 sec)
 SHOW TABLES
 --------------
 
-Empty set (0.01 sec)
+Empty set (0.00 sec)
 
 --------------
 CREATE TABLE bus (capacity INT,plateNum CHAR(7) NOT NULL, PRIMARY KEY(plateNum))
 --------------
 
-Query OK, 0 rows affected (0.06 sec)
+Query OK, 0 rows affected (0.26 sec)
 
 --------------
 CREATE TABLE busTrip(start DATE, end DATE,county VARCHAR(30),tripName VARCHAR(50), tripID INT NOT NULL, PRIMARY KEY(tripID), plateNum CHAR(7),FOREIGN KEY(plateNum) REFERENCES bus(plateNum))
@@ -48,19 +48,19 @@ Query OK, 0 rows affected (0.07 sec)
 CREATE TABLE passport(birth DATE, passportNum CHAR(4),expiry DATE, citizenship VARCHAR(30),PRIMARY KEY(passportNum))
 --------------
 
-Query OK, 0 rows affected (0.06 sec)
+Query OK, 0 rows affected (0.05 sec)
 
 --------------
 CREATE TABLE passenger(firstName VARCHAR(20),lastName VARCHAR(20), pID INT NOT NULL, PRIMARY KEY(pID), passportNum CHAR(4), FOREIGN KEY(passportNum) REFERENCES passport(passportNum)ON DELETE CASCADE)
 --------------
 
-Query OK, 0 rows affected (0.17 sec)
+Query OK, 0 rows affected (0.11 sec)
 
 --------------
-CREATE TABLE booking (pID INT,FOREIGN KEY (pID)REFERENCES passenger(pID),tripID INT,FOREIGN KEY(tripID)REFERENCES busTrip(tripID),price NUMERIC )
+CREATE TABLE booking (pID INT,FOREIGN KEY (pID)REFERENCES passenger(pID) ON DELETE CASCADE,tripID INT,FOREIGN KEY(tripID)REFERENCES busTrip(tripID),price NUMERIC )
 --------------
 
-Query OK, 0 rows affected (0.26 sec)
+Query OK, 0 rows affected (0.07 sec)
 
 --------------
 SHOW TABLES

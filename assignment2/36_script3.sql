@@ -37,11 +37,11 @@ SELECT firstName,lastName,citizenship,tripName,county FROM passenger,busTrip,pas
 SELECT busTrip.tripID,tripName FROM busTrip WHERE busTrip.tripID NOT IN(SELECT booking.tripID FROM booking);
 -- ---------
 -- QUERY 13
-CREATE VIEW topSpender AS SELECT firstName,lastName,citizenship,price FROM passenger,passport,booking WHERE passenger.pID IN(SELECT pID FROM booking) AND passport.passportNum = passenger.passportNum;
+CREATE VIEW topSpender AS SELECT firstName,lastName,citizenship,price FROM passenger,passport,booking WHERE passenger.pID = booking.pID AND passport.passportNum = passenger.passportNum;
+SELECT firstName,lastName,citizenship,SUM(price) FROM topSpender GROUP BY firstName,lastName;
 -- ---------
 -- QUERY 14
 SELECT tripName FROM busTrip,booking WHERE busTrip.tripID = booking.tripID GROUP BY tripName HAVING COUNT(*) <4;
 -- ---------
 -- QUERY 15
 SELECT tripName as Bus Trip Name,SUM(booking.pID) as Current Number of passenger,capacity as Capacity of Assigned Bus,plateNum as Current Bus Assigned License Plate FROM bus,busTrip,booking;
-

@@ -201,10 +201,32 @@ SELECT busTrip.tripID,tripName FROM busTrip WHERE busTrip.tripID NOT IN(SELECT b
 4 rows in set (0.00 sec)
 
 --------------
-CREATE VIEW topSpender AS SELECT firstName,lastName,citizenship,price FROM passenger,passport,booking WHERE passenger.pID IN(SELECT pID FROM booking) AND passport.passportNum = passenger.passportNum
+CREATE VIEW topSpender AS SELECT firstName,lastName,citizenship,price FROM passenger,passport,booking WHERE passenger.pID = booking.pID AND passport.passportNum = passenger.passportNum
 --------------
 
 Query OK, 0 rows affected (0.01 sec)
+
+--------------
+SELECT firstName,lastName,citizenship,SUM(price) FROM topSpender GROUP BY firstName,lastName
+--------------
+
++-----------+----------+-------------+------------+
+| firstName | lastName | citizenship | SUM(price) |
++-----------+----------+-------------+------------+
+| Bart      | Simpson  | USA         |       1200 |
+| Creed     | Bratton  | Germany     |       1200 |
+| Dwight    | Schrute  | Germany     |       2300 |
+| Heidi     | Klum     | Germany     |       1202 |
+| Homer     | Simpson  | USA         |       2800 |
+| Lisa      | Simpson  | USA         |       1200 |
+| Maggie    | Simpson  | USA         |        600 |
+| Marge     | Simpson  | USA         |       2200 |
+| Michael   | Scott    | Canada      |       1000 |
+| Ned       | Flanders | USA         |       1600 |
+| Shawn     | Kim      | Germany     |        800 |
+| Todd      | Flanders | USA         |        400 |
++-----------+----------+-------------+------------+
+12 rows in set (0.00 sec)
 
 --------------
 SELECT tripName FROM busTrip,booking WHERE busTrip.tripID = booking.tripID GROUP BY tripName HAVING COUNT(*) <4
@@ -217,7 +239,7 @@ SELECT tripName FROM busTrip,booking WHERE busTrip.tripID = booking.tripID GROUP
 +----------+
 1 row in set (0.00 sec)
 
-ERROR 1064 (42000) at line 46: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Trip Name,SUM(booking.pID) as Current Number of passenger,capacity as Capacity o' at line 1
+ERROR 1064 (42000) at line 47: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Trip Name,SUM(booking.pID) as Current Number of passenger,capacity as Capacity o' at line 1
 --------------
 SELECT tripName as Bus Trip Name,SUM(booking.pID) as Current Number of passenger,capacity as Capacity of Assigned Bus,plateNum as Current Bus Assigned License Plate FROM bus,busTrip,booking
 --------------

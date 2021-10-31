@@ -10,7 +10,7 @@ SELECT * FROM passenger;
 DELETE FROM passenger WHERE passportNum IN(SELECT passportNum FROM passport WHERE citizenship = "Canada");
 SELECT * FROM passport;
 -- ---------
--- The reason why this can work becasue ON DELETE CASCADE is allow a parent be deleted after a child be delete
+-- The reason why this can work becasue ON DELETE CASCADE is allow a parent row be deleted after a child row be delete
 SELECT * FROM busTrip;
 DELETE FROM busTrip WHERE tripName = 'California Wines';
 SELECT * FROM busTrip;
@@ -23,4 +23,3 @@ SELECT * FROM passenger;
 SELECT* FROM pplOnTrip;
 DELETE FROM booking WHERE pID IN (SELECT pID FROM passenger WHERE passenger.lastName ='Simpson');
 SELECT* FROM pplOnTrip;
-
